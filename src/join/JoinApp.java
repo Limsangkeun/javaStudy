@@ -4,6 +4,9 @@ import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/* 로그인 상태에서 회원가입, 로그인 못함.
+ * 해야할 것 : 아이디 길이 제한, 생일 날짜 예외 처리
+ */
 public class JoinApp {
 
 	public static void main(String[] args) {

@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class JoinService implements Join{
 	private ArrayList<UserVO> list = new ArrayList<>();
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	private boolean isLogin = false;
 	private String loginUserID;
+	private Calendar cal = Calendar.getInstance();
 	@Override
 	public void join() {
 		// TODO Auto-generated method stub
@@ -36,8 +38,8 @@ public class JoinService implements Join{
 			temp.setName(br.readLine());
 			System.out.print("생일을 입력하세요 : (yyyyMMDD)");
 			String tempString = br.readLine();
-			if(tempString.length() != 8) {
-				System.out.println("생일 형식에 맞춰서 작성해주세요");
+			if(tempString.length() != 8) {	
+				System.out.println("8자의 올바른 형식으로 생일을 입력하세요.");
 				return;
 			}
 			temp.setBirth(tempString);
@@ -117,16 +119,15 @@ public class JoinService implements Join{
 			temp.setName(br.readLine());
 			System.out.print("생일을 입력하세요 : (yyyyMMDD)");
 			String tempString = br.readLine();
-			if(tempString.length() != 8) {
-				System.out.println("생일 형식에 맞춰서 작성해주세요");
+			if(tempString.length() != 8) {	
+				System.out.println("8자의 올바른 형식으로 생일을 입력하세요.");
 				return;
 			}
 			System.out.println("현재정보 : "+temp);
 			System.out.println("정말 수정하시겠습니까?(Y/N)");
-	
 			char ch = br.readLine().charAt(0);
 			if(ch!='Y' && ch != 'y') {
-				System.out.println("회원탈퇴 취소되었습니다.");
+				System.out.println("회원수정 취소되었습니다.");
 				return;
 			}
 			list.set(list.indexOf(original), temp);
