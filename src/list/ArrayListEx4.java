@@ -1,16 +1,19 @@
 package list;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Vector;
 
-public class ArrayListEx1 {
+public class ArrayListEx4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//List 구현클래스 : ArrayList, LinkedList, Vector
-		List<String> list = new ArrayList<>(); //업캐스팅
+		
+		//Vector
+		List<String> list = new Vector<>(); //업캐스팅
+		//특별히 다른 기능 말고는 그냥 이름만 바꿔주도 돌아간다.
 		
 		list.add("서울");
 		list.add("부산");
@@ -50,11 +53,12 @@ public class ArrayListEx1 {
 		for(String s : list) { //jdk 5.0 이상만 사용 가능
 			System.out.print(s+" ");
 		}
-		System.out.println("전체 출력-2");
+		System.out.println("\n전체 출력-2");
 		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i)+" ");
+			System.out.print(list.get(i)+" ");
 		}
-		System.out.println("전체 출력-3 using iterator" ); //Map에서 자주 사용
+		
+		System.out.println("\n전체 출력-3 using iterator" ); //Map에서 자주 사용
 		Iterator<String> it = list.iterator(); //Iterator == 반복자. 데이터를 처음부터 끝까지 순회하면서 하나씩 추출해 오는개념.
 		
 		while(it.hasNext()) { //데이터가 존재하면 True 데이터가 없으면 False 
@@ -65,7 +69,8 @@ public class ArrayListEx1 {
 			System.out.print(it.next()+" ");//데이터를 가져오고 다음으로 이동
 		}
 		System.out.println("전체 출력-4");
-		ListIterator<String> it2 = list.listIterator(); //  역순으로도 출력가능(그냥 Iterator는 불가)
+		ListIterator<String> it2 = list.listIterator(); 
+		//  역순으로도 출력가능(그냥 Iterator는 불가)
 		while(it2.hasNext()) {
 			String s = it2.next();
 			System.out.print(s+" ");

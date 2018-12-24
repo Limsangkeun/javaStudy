@@ -1,16 +1,19 @@
 package list;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayListEx1 {
+public class ArrayListEx3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//List 구현클래스 : ArrayList, LinkedList, Vector
-		List<String> list = new ArrayList<>(); //업캐스팅
+		
+		//LinkdedList
+		List<String> list = new LinkedList<>(); //업캐스팅
+		//특별히 다른 기능 말고는 그냥 이름만 바꿔주도 돌아간다.
 		
 		list.add("서울");
 		list.add("부산");
@@ -52,7 +55,7 @@ public class ArrayListEx1 {
 		}
 		System.out.println("전체 출력-2");
 		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i)+" ");
+			System.out.print(list.get(i)+" ");
 		}
 		System.out.println("전체 출력-3 using iterator" ); //Map에서 자주 사용
 		Iterator<String> it = list.iterator(); //Iterator == 반복자. 데이터를 처음부터 끝까지 순회하면서 하나씩 추출해 오는개념.

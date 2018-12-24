@@ -1,17 +1,16 @@
 package list;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Arrays;
 import java.util.List;
-import java.util.ListIterator;
 
 public class ArrayListEx2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//List 구현클래스 : ArrayList, LinkedList, Vector
-		List<String> list = new ArrayList<>(); //업캐스팅
-		
+		// List 구현클래스 : ArrayList, LinkedList, Vector
+		List<String> list = new ArrayList<>(); // 업캐스팅
+
 		list.add("서울");
 		list.add("부산");
 		list.add("대구");
@@ -19,69 +18,48 @@ public class ArrayListEx2 {
 		list.add("광주");
 		list.add("대전");
 		list.add("울산");
-		list.add("서울"); //중복 허용
+		list.add("세종");
 		
-		System.out.println(list);
-		System.out.println("전체 데이터 개수 : "+list.size());
-		System.out.println("처음 : "+list.get(0));
-		System.out.println("마지막 : "+list.get(list.size()-1));
+		List<String> list2 = new ArrayList<>();
+		list2.add("경기");
+		list2.add("강원");
+		list2.add("충청");
+		list2.add("전라");
+		list2.add("경상");
+		list2.add("제주");
 		
-		//처음에 한국 추가ㅓ
-		list.add(0, "한국");
-		System.out.println(list);
-		
-		//처음 데이터를 대한민국으로 변경
-		list.set(0, "대한민국");
+		list.addAll(list2); //list에 list2 데이터를 모두 추가
 		System.out.println(list);
 		
-		//리스트 안에 서울이 있는가 확인
-		if(list.contains("서울"))
-			System.out.println("서울이 존재합니다."); //이건 주소로 찾는거나 마찬가지
+		//리스트 to 배열
 		
-		//부산이 몇번째 인덱스에 있는지 확인
-		System.out.println(list.size()+"개의 아이템 중 "+list.indexOf("부산")); //존재하지 않으면 -1
+		String array[] = list.toArray(new String[list.size()]); //String 배열의 선언(list의 크기로)
 		
-		//대한민국 삭제
-		//list.remove("대한민국"); 
-		list.remove(0); //둘 중 하나 사용
-		
-		//출력하기
-		System.out.println("전체 출력-1");
-		for(String s : list) { //jdk 5.0 이상만 사용 가능
-			System.out.print(s+" ");
-		}
-		System.out.println("전체 출력-2");
-		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i)+" ");
-		}
-		System.out.println("전체 출력-3 using iterator" ); //Map에서 자주 사용
-		Iterator<String> it = list.iterator(); //Iterator == 반복자. 데이터를 처음부터 끝까지 순회하면서 하나씩 추출해 오는개념.
-		
-		while(it.hasNext()) { //데이터가 존재하면 True 데이터가 없으면 False 
-			System.out.print(it.next()+" ");//데이터를 가져오고 다음으로 이동
-		}
-		System.out.println();
-		while(it.hasNext()) { //데이터가 존재하면 True 데이터가 없으면 False 
-			System.out.print(it.next()+" ");//데이터를 가져오고 다음으로 이동
-		}
-		System.out.println("전체 출력-4");
-		ListIterator<String> it2 = list.listIterator(); //Vector에서는 존재하지 않음. 역순으로도 출력가능(그냥 Iterator는 불가)
-		while(it2.hasNext()) {
-			String s = it2.next();
+		for(String s : array) {
 			System.out.print(s+" ");
 		}
 		System.out.println();
-		//위에 전체 출력으로 인해 ListIterator가  끝으로 가있기때문에 역순 출력이 가능한것이다. 아니면 이전값이 없으므로 출력되지 않는다.
-		System.out.println("역순 출력-1");
-		while(it2.hasPrevious()) {
-			System.out.print(it2.previous()+" ");
-		}
-		System.out.println();
 		
-		System.out.println("역순 출력-2");
-		for(int i=list.size()-1; i>=0; i--) {
-			System.out.print(list.get(i)+" ");
-		}
+		//배열 to List #1
+		//List<String> list3 = new ArrayList<>(Arrays.asList(array));
+		//배열 to List #2
+		List<String> list3 = Arrays.asList(array);
+		System.out.println(list3);
+		
+		//subList(fromIndex, toIndex) : fromIndex 부터 toIndex-1 까지 잘라서 리스트로 반환 //subString 개념과 유사
+		List<String> list4 = list.subList(2, 5);
+		System.out.println(list4);
+		
+		//clear.. index 2~4 까지 지우기
+		list.subList(2, 5).clear(); //본 리스트에서 서브 리스트 만큼 삭제해라
+		System.out.println(list);
+		
+		//list2 모두 지우기
+		list2.clear();
+		System.out.println("list2가 아무것도 없나 ? : " + list2.isEmpty());
+		System.out.println("list2의 원소의 개수 : " + list2.size());
+		
+		//
 	}
 
 }
