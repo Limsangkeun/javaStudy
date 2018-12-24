@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayListEx01 {
+public class ArrayListEx2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
