@@ -29,7 +29,7 @@ public class ScoreImpl implements Score {
 			vo.setKor(inputScore("국어"));
 			vo.setEng(inputScore("영어"));
 			vo.setMath(inputScore("수학"));
-			System.out.printf("%s\t%s\t%d\t%d\t%d\t\n",vo.getHak(),vo.getName(),vo.getKor(),vo.getEng(),vo.getMath());
+			System.out.printf("%10s\t%10s\t%3d\t%3d\t%3d\t\n",vo.getHak(),vo.getName(),vo.getKor(),vo.getEng(),vo.getMath());
 			list.add(vo);
 			System.out.println("자료 추가 완료...");
 			
@@ -46,7 +46,7 @@ public class ScoreImpl implements Score {
 		System.out.println("전체인원수 : "+list.size());
 		
 		for(ScoreVO temp : list) {
-			System.out.printf("%s\t%s\t%d\t%d\t%d\t\n",temp.getHak(),temp.getName(),temp.getKor(),temp.getEng(),temp.getMath());
+			System.out.printf("%10s\t%10s\t%3d\t%3d\t%3d\t%3d\n",temp.getHak(),temp.getName(),temp.getKor(),temp.getEng(),temp.getMath(),temp.getTot());
 		}
 		System.out.println();
 	}
@@ -59,7 +59,7 @@ public class ScoreImpl implements Score {
 			name = br.readLine();
 			for(ScoreVO temp : list) {
 				if(temp.getName().startsWith(name)) {
-					System.out.printf("%s\t%s\t%d\t%d\t%d\t\n",temp.getHak(),temp.getName(),temp.getKor(),temp.getEng(),temp.getMath());
+								System.out.printf("%10s\t%10s\t%3d\t%3d\t%3d\t%3d\n",temp.getHak(),temp.getName(),temp.getKor(),temp.getEng(),temp.getMath(),temp.getTot());
 				}
 			}
 		}catch(IOException e) {
@@ -81,7 +81,7 @@ public class ScoreImpl implements Score {
 				return;
 			}
 			System.out.println(hak+": 해당 학번에 대한 정보는 다음과 같습니다.");
-			System.out.printf("%s\t%s\t%d\t%d\t%d\t\n",temp.getHak(),temp.getName(),temp.getKor(),temp.getEng(),temp.getMath());
+						System.out.printf("%10s\t%10s\t%3d\t%3d\t%3d\t%3d\n",temp.getHak(),temp.getName(),temp.getKor(),temp.getEng(),temp.getMath(),temp.getTot());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -164,5 +164,52 @@ public class ScoreImpl implements Score {
 			}
 		}
 		return temp;
+	}
+	@Override
+	public void sortByName() {
+		System.out.println("이름 순으로 정렬합니다....");
+		ScoreVO temp = null;
+		for(int i=0; i<list.size()-1; i++) {
+			for(int j=i+1; j<list.size(); j++) {
+				if(list.get(i).getName().compareTo(list.get(j).getName())>0) {
+					temp = list.get(i);
+					list.set(i, list.get(j));
+					list.set(j, temp);
+				}
+			}
+		}
+		print();
+	}
+	@Override
+	public void sortByHak() {
+		// TODO Auto-generated method stub
+		System.out.println("학번 순으로 정렬합니다....");
+		ScoreVO temp = null;
+		for(int i=0; i<list.size()-1; i++) {
+			for(int j=i+1; j<list.size(); j++) {
+				if(list.get(i).getHak().compareTo(list.get(j).getHak())>0) {
+					temp = list.get(i);
+					list.set(i, list.get(j));
+					list.set(j, temp);
+				}
+			}
+		}
+		print();
+	}
+	@Override
+	public void srotByScore() {
+		// TODO Auto-generated method stub
+		System.out.println("총점 순으로 정렬합니다....");
+		ScoreVO temp = null;
+		for(int i=0; i<list.size()-1; i++) {
+			for(int j=i+1; j<list.size(); j++) {
+				if(list.get(i).getTot() < list.get(j).getTot()) {
+					temp = list.get(i);
+					list.set(i, list.get(j));
+					list.set(j, temp);
+				}
+			}
+		}
+		print();
 	}
 }

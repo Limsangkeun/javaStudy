@@ -46,4 +46,8 @@ public class ScoreVO { // 데이터용 클래스 //필드명은 private으로 사용하고 get/se
 	public void setMath(int math) {
 		this.math = math;
 	}
+	
+	public int getTot() {
+		return this.kor+this.math+this.eng;
+	}
 }
