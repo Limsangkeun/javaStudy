@@ -1,4 +1,4 @@
-package makingArrayList;
+package collection.list.Myarraylist;
 
 public interface MyList <E>{
 	//데이터 추가

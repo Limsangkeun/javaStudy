@@ -1,4 +1,4 @@
-package makingArrayList;
+package collection.list.Myarraylist;
 
 import java.util.Iterator;
 

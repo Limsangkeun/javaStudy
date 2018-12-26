@@ -1,4 +1,4 @@
-package makingArrayList;
+package collection.list.Myarraylist;
 
 public class MyArrayList<E> implements MyList<E>{
 	private Object elementData[];

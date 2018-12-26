@@ -1,4 +1,4 @@
-package makingArrayList;
+package collection.list.Myarraylist;
 
 public interface MyIterator<E>{
 	public boolean hasNext();
