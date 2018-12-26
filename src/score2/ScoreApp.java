@@ -25,7 +25,7 @@ public class ScoreApp {
 				case 6:score.delete();break;
 				case 7:score.sortByName();break;
 				case 8:score.sortByHak();break;
-				case 9:score.srotByScore();break;
+				case 9:score.sortByScore();break;
 			}
 		}
 		sc.close();

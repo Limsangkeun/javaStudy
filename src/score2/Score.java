@@ -9,5 +9,5 @@ public interface Score {
 		public void delete();
 		public void sortByName();
 		public void sortByHak();
-		public void srotByScore();
+		public void sortByScore();
 }

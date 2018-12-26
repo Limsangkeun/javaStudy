@@ -3,6 +3,7 @@ class Aclass{
     public void write() {}
     public void print() {}
 }
+
 class Bclass extends Aclass {
     public int x=100;
     public void print() {System.out.println("B.print");}

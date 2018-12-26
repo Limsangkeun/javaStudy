@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -168,48 +170,44 @@ public class ScoreImpl implements Score {
 	@Override
 	public void sortByName() {
 		System.out.println("이름 순으로 정렬합니다....");
-		ScoreVO temp = null;
-		for(int i=0; i<list.size()-1; i++) {
-			for(int j=i+1; j<list.size(); j++) {
-				if(list.get(i).getName().compareTo(list.get(j).getName())>0) {
-					temp = list.get(i);
-					list.set(i, list.get(j));
-					list.set(j, temp);
-				}
+		Collections.sort(list, new Comparator<ScoreVO>() {
+
+			@Override
+			public int compare(ScoreVO o1, ScoreVO o2) {
+				// TODO Auto-generated method stub
+				return o1.getName().compareTo(o2.getName());
 			}
-		}
+		});
 		print();
 	}
 	@Override
 	public void sortByHak() {
 		// TODO Auto-generated method stub
 		System.out.println("학번 순으로 정렬합니다....");
-		ScoreVO temp = null;
-		for(int i=0; i<list.size()-1; i++) {
-			for(int j=i+1; j<list.size(); j++) {
-				if(list.get(i).getHak().compareTo(list.get(j).getHak())>0) {
-					temp = list.get(i);
-					list.set(i, list.get(j));
-					list.set(j, temp);
-				}
+		Collections.sort(list, new Comparator<ScoreVO>() {
+
+			@Override
+			public int compare(ScoreVO o1, ScoreVO o2) {
+				// TODO Auto-generated method stub
+				return 0;
 			}
-		}
+			
+		});
 		print();
 	}
 	@Override
-	public void srotByScore() {
+	public void sortByScore() {
 		// TODO Auto-generated method stub
 		System.out.println("총점 순으로 정렬합니다....");
-		ScoreVO temp = null;
-		for(int i=0; i<list.size()-1; i++) {
-			for(int j=i+1; j<list.size(); j++) {
-				if(list.get(i).getTot() < list.get(j).getTot()) {
-					temp = list.get(i);
-					list.set(i, list.get(j));
-					list.set(j, temp);
-				}
+		Collections.sort(list, new Comparator<ScoreVO>() {
+
+			@Override
+			public int compare(ScoreVO o1, ScoreVO o2) {
+				// TODO Auto-generated method stub
+				return -(o1.getTot() - o2.getTot());//내림차순으로 출력
 			}
-		}
+			
+		});
 		print();
 	}
 }
