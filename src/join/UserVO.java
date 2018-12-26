@@ -32,6 +32,6 @@ public class UserVO {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return String.format("%10s\t%10s\t%10s\t%10s\n", getId(),getPassword(),getName(),getBirth());
+		return String.format("%10s\t%10s\t%10s\n", getId(),getName(),getBirth());
 	}
 }

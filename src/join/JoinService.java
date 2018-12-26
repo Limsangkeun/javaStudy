@@ -12,6 +12,15 @@ public class JoinService implements Join{
 	private boolean isLogin = false;
 	private String loginUserID;
 	private Calendar cal = Calendar.getInstance();
+	public JoinService() {
+		// TODO Auto-generated constructor stub
+		UserVO vo = new UserVO();
+		vo.setId("admin");
+		vo.setPassword("admin");
+		vo.setName("admin");
+		vo.setBirth("--------");
+		list.add(vo);
+	}
 	@Override
 	public void join() {
 		// TODO Auto-generated method stub
@@ -77,11 +86,9 @@ public class JoinService implements Join{
 						isLogin = true;
 						return;
 					}
-					System.out.println("비밀번호가 다릅니다.");
-					return;
 				}
 			}
-			System.out.println("id가 다릅니다.");
+			System.out.println("id 또는 password가 다릅니다.");
 		}catch(IOException e) {
 			System.out.println(e.toString());
 		}catch(Exception e) {
