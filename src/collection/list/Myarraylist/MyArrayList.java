@@ -165,7 +165,7 @@ public class MyArrayList<E> implements MyList<E>{
 		@Override
 		public void remove() {
 			// TODO Auto-generated method stub
-			MyArrayList.this.remove(nextIndex-1);
+			MyArrayList.this.remove(nextIndex-1); //그냥 this를 사용하면 내부 클래스가 지칭된다. 외부와 내부에 동일한 이름의 메서드가 존재하므로 지칭이 필요하다.
 			nextIndex++;
 		}
 	}
