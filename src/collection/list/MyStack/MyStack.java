@@ -1,6 +1,7 @@
 package collection.list.MyStack;
 
 import java.util.EmptyStackException;
+import java.util.LinkedList;
 
 public class MyStack <E>{
 	private int size;
@@ -20,6 +21,8 @@ public class MyStack <E>{
 	}
 	public boolean isEmpty() {
 		if(size==0) return true;
+		LinkedList<String> temp = new LinkedList<>();
+
 		return false;
 	}
 	
@@ -35,13 +38,13 @@ public class MyStack <E>{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public E peek() throws EmptyStackException{
+	public E peek(){
 		if(size==0) throw new EmptyStackException();
 		return (E) array[size-1];
 	}
 	
 	@SuppressWarnings("unchecked")
-	public E pop() throws EmptyStackException{
+	public E pop(){
 		if(size==0) throw new EmptyStackException();
 		E temp = (E) array[size-1];
 		array[size-1] = null;
@@ -49,9 +52,7 @@ public class MyStack <E>{
 		return temp;
 	}
 	
-	public int Size() {
+	public int size() {
 		return size;
 	}
-	
-	
 }
